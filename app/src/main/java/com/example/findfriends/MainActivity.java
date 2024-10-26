@@ -59,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if( requestCode==1){
-            if(grantResults.length>0){
-                if(grantResults[0]==PackageManager.PERMISSION_DENIED){
+            if((grantResults.length==0) || (grantResults[0]==PackageManager.PERMISSION_DENIED || grantResults[3]== PackageManager.PERMISSION_DENIED)){
                     finish();
                 }
-            }else {
+            }
+        else {
                 Permission=true;
             }
-        }
+
     }
 }

@@ -18,7 +18,9 @@ public class MyLocationService extends Service {
     @SuppressLint("MissingPermission")
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        String phone = intent.getStringExtra("num");
+        String phone = intent.getStringExtra("phone");
+
+        // recuperation de la position gps
         FusedLocationProviderClient mClient = LocationServices.getFusedLocationProviderClient(this);
         mClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
@@ -27,7 +29,7 @@ public class MyLocationService extends Service {
                     double longitude = location.getLongitude();
                     double latitude = location.getLatitude();
                     SmsManager manager=SmsManager.getDefault();
-                    String message = "Find friends : Ma position est #" + longitude + "# " + latitude;
+                    String message = "FindFriends : Ma position est #" + longitude + "#" + latitude;
                     manager.sendTextMessage(phone, null, message, null, null);
                 }
             }

@@ -28,12 +28,12 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 String num = binding.numID.getText().toString();
 
-                /// Envoie SMS
+                /// Send SMS
 
                 SmsManager manager= SmsManager.getDefault();
                 manager.sendTextMessage(num,
                         null,
-                        "Find Friends:Envoyer moi votre position",
+                        "Find Friends:Send me your location",
                         null,
                         null);
             }

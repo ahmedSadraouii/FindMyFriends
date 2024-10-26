@@ -19,10 +19,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Findfriends"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBrR-M8emHpKbLOPyafzZ7OYjtdz0K7pj4" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_maps" />
+
         <service
             android:name=".MyLocationService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <receiver
             android:name=".MySMSReceiver"
